@@ -60,7 +60,7 @@ public class CalculatorPage extends BasePage {
     @FindBy(xpath = "//md-select[@placeholder='GPU type']")
     private WebElement gpuTypeSpan;
 
-    @FindBy(xpath = "//div[@id='select_container_454']//md-option/div")
+    @FindBy(xpath = "//div[@id='select_container_457']//md-option/div")
     private List<WebElement> gpuTypeAnswer;
 
 
@@ -68,15 +68,15 @@ public class CalculatorPage extends BasePage {
     @FindBy(xpath = "//md-select[@placeholder='Number of GPUs']")
     private WebElement numOfGPUSpan;
 
-    @FindBy(xpath = "//div[@id='select_container_456']//md-option/div")
+    @FindBy(xpath = "//div[@id='select_container_459']//md-option/div")
     private List<WebElement> numOfGPUAnswer;
 
 
 
-    @FindBy(xpath = "//md-select-value[@id='select_value_label_409']")
+    @FindBy(xpath = "//md-select-value[@id='select_value_label_412']")
     private WebElement localSSDSpan;
 
-    @FindBy(xpath = "//div[@id='select_container_411']//md-option/div")
+    @FindBy(xpath = "//div[@id='select_container_414']//md-option/div")
     private List<WebElement> localSSDAnswer;
 
 
@@ -121,7 +121,7 @@ public class CalculatorPage extends BasePage {
     @FindBy(xpath = "//button[@ng-click='cloudCartCtrl.showEmailForm();']")
     private WebElement mailButton;
 
-    @FindBy(xpath = "//input[@id='input_530']")
+    @FindBy(xpath = "//input[@id='input_533']")
     private WebElement mailAddress;
 
     @FindBy(xpath = "//button[@ng-click='emailQuote.emailQuote(true); emailQuote.$mdDialog.hide()']")
@@ -202,7 +202,8 @@ public class CalculatorPage extends BasePage {
         mailButton.click();
     }
 
-    public void setMailAddress(String mail){
+    public void setMailAddress(String mail, long time){
+        mailAddress.click();
         mailAddress.sendKeys(mail + "@yopmail.com", Keys.ENTER);
         sendEmail.click();
     }

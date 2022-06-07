@@ -49,7 +49,7 @@ public class Hardcore extends BrowserControl {
         driver().switchTo().frame(calculatorPage().getFrame1());
         driver().switchTo().frame(calculatorPage().getFrame2());
         calculatorPage().mailButtonClick(WAIT_TIME);
-        calculatorPage().setMailAddress(mailText);
+        calculatorPage().setMailAddress(mailText, WAIT_TIME);
         driver().switchTo().window(tabs.get(1));
         Thread.sleep(10000);
         yopmailMailPage().refreshMailList();
