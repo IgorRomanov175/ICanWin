@@ -5,9 +5,9 @@ import org.openqa.selenium.WindowType;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.lang.reflect.Array;
+
 import java.util.ArrayList;
-import java.util.Set;
+
 
 public class Hardcore extends BrowserControl {
 
@@ -31,6 +31,8 @@ public class Hardcore extends BrowserControl {
         calculatorPage().setSeries(WAIT_TIME);
         calculatorPage().setMachineType(WAIT_TIME);
         calculatorPage().addGPUclick(WAIT_TIME);
+        calculatorPage().scrollToElement(calculatorPage().getSeriesSpan());
+        calculatorPage().waitForVisibilityOfElement(WAIT_TIME, calculatorPage().getGpuTypeSpan());
         calculatorPage().setGpuType(WAIT_TIME);
         calculatorPage().setNumOfGPU(WAIT_TIME);
         calculatorPage().scrollToElement(calculatorPage().getAddGPU());
