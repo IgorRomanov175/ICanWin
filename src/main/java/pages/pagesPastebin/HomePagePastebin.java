@@ -1,6 +1,6 @@
-package pagesPastebin;
+package pages.pagesPastebin;
 
-import basePage.BasePage;
+import pages.basePage.BasePage;
 import lombok.Getter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -30,32 +30,56 @@ public class HomePagePastebin extends BasePage {
     @FindBy(xpath = "//button[text()='Create New Paste']")
     private WebElement createNewPaste;
 
+    @FindBy(xpath = "//a[text()='Bash']")
+    private WebElement bashTag;
+
+    @FindBy(xpath = "//textarea")
+    private WebElement textareaWithCode;
+
     public HomePagePastebin(WebDriver driver) {
         super(driver);
     }
 
-    public void codeFieldInsert(String code){
-        codeField.sendKeys(code);
+    public HomePagePastebin openURL(String url){
+        getDriver().get(url);
+        return this;
     }
 
-    public void pasteExpiration10Minutes(long time){
+    public HomePagePastebin codeFieldInsert(String code){
+        codeField.sendKeys(code);
+        return this;
+    }
+
+    public HomePagePastebin pasteExpiration10Minutes(long time){
         pasteExpirationSpan.click();
         waitForClickableElement(time, pasteExpirationAnswer);
         pasteExpirationAnswer.click();
+        scrollToElement(codeField);
+        return this;
     }
 
-    public void setSyntaxHighlightingBash(long time){
+    public HomePagePastebin setSyntaxHighlightingBash(long time){
         syntaxHighlightingSpan.click();
         waitForClickableElement(time, syntaxHighlightingAnswer);
         syntaxHighlightingAnswer.click();
+        return this;
     }
 
-    public void setPasteName(String name){
+    public HomePagePastebin setPasteName(String name){
         pasteName.sendKeys(name);
+        return this;
     }
 
-    public void createNewPasteClick(){
+    public HomePagePastebin createNewPasteClick(){
         createNewPaste.click();
+        return this;
     }
 
+    public void scrollToElement(WebElement element) {
+        super.scrollToElement(element);
+    }
+
+    public String getBashTegText(){
+        return getBashTag().getText();
+    }
 }

@@ -17,29 +17,31 @@ public class HurtMePlenty extends BrowserControl {
 
     @Test
     public void hurtMePlenty() {
-        googleCloudHomePage().openPage(GOOGLE_CLOUD_URL);
-        googleCloudHomePage().searchFieldInput("Google Cloud Platform Pricing Calculator");
+        googleCloudHomePage().getDriver().get(GOOGLE_CLOUD_URL);
+        googleCloudHomePage().searchFieldInput(SEARCH);
+
+
         searchPage().waitForClickableElement(WAIT_TIME, searchPage().getPricingLink());
         searchPage().pricingLinkClick();
-        calculatorPage().waitForPageLoadComplete(WAIT_TIME);
-        driver().switchTo().frame(calculatorPage().getFrame1());
-        driver().switchTo().frame(calculatorPage().getFrame2());
-        calculatorPage().computeEngineClick();
-        calculatorPage().getComputeEngine().getText();
-        calculatorPage().waitForVisibilityOfElement(WAIT_TIME, calculatorPage().getNumberOfInstances());
-        calculatorPage().setNumberOfInstances("4");
-        calculatorPage().setOperatingSystem(WAIT_TIME);
-        calculatorPage().scrollToElement(calculatorPage().getNumberOfInstances());
-        calculatorPage().setSeries(WAIT_TIME);
-        calculatorPage().setMachineType(WAIT_TIME);
-        calculatorPage().addGPUclick(WAIT_TIME);
-        calculatorPage().setGpuType(WAIT_TIME);
-        calculatorPage().setNumOfGPU(WAIT_TIME);
-        calculatorPage().scrollToElement(calculatorPage().getAddGPU());
-        calculatorPage().setLocalSSD(WAIT_TIME);
-        calculatorPage().setDatacenterLocation(WAIT_TIME);
-        calculatorPage().setCommitmentLocation(WAIT_TIME);
-        calculatorPage().clickEstimateButton();
+
+
+        calculatorPage()
+                .switchToFrame(calculatorPage().getFrame1())
+                .switchToFrame(calculatorPage().getFrame2())
+                .computeEngineClick()
+                .setNumberOfInstances("4", WAIT_TIME)
+                .setOperatingSystem(WAIT_TIME)
+                .setSeries(WAIT_TIME)
+                .setMachineType(WAIT_TIME)
+                .addGPUclick(WAIT_TIME)
+                .setGpuType(WAIT_TIME)
+                .setNumOfGPU(WAIT_TIME)
+                .setLocalSSD(WAIT_TIME)
+                .setDatacenterLocation(WAIT_TIME)
+                .setCommitmentLocation(WAIT_TIME)
+                .clickEstimateButton();
+
+
         Assert.assertEquals(vmClass, calculatorPage().getAssertVMClass().getText());
         Assert.assertEquals(instanceType, calculatorPage().getAssertInstanceType().getText());
         Assert.assertEquals(region, calculatorPage().getAssertRegion().getText());

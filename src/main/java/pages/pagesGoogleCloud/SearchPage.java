@@ -1,6 +1,6 @@
-package pagesGoogleCloud;
+package pages.pagesGoogleCloud;
 
-import basePage.BasePage;
+import pages.basePage.BasePage;
 import lombok.Getter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

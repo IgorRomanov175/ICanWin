@@ -1,6 +1,7 @@
-package pagesGoogleCloud;
+package pages.pagesGoogleCloud;
 
-import basePage.BasePage;
+import org.openqa.selenium.WindowType;
+import pages.basePage.BasePage;
 import lombok.Getter;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -23,36 +24,36 @@ public class CalculatorPage extends BasePage {
 
 
 
-    @FindBy(xpath = "//input[@id='input_85']")
+    @FindBy(xpath = "//input[@id='input_86']")
     private WebElement numberOfInstances;
 
 
 
-    @FindBy(xpath = "//md-select-value[@id='select_value_label_77']")
+    @FindBy(xpath = "//md-select-value[@id='select_value_label_78']")
     private WebElement operatingSystemSpan;
 
-    @FindBy(xpath = "//div[@id='select_container_99']//md-option/div")
+    @FindBy(xpath = "//div[@id='select_container_100']//md-option/div")
     private List<WebElement> operatingSystemAnswer;
 
 
 
-    @FindBy(xpath = "//md-select-value[@id='select_value_label_80']")
+    @FindBy(xpath = "//md-select-value[@id='select_value_label_81']")
     private WebElement seriesSpan;
 
-    @FindBy(xpath = "//div[@id='select_container_111']//md-option/div")
+    @FindBy(xpath = "//div[@id='select_container_112']//md-option/div")
     private List<WebElement> seriesAnswer;
 
 
 
-    @FindBy(xpath = "//md-select-value[@id='select_value_label_81']")
+    @FindBy(xpath = "//md-select-value[@id='select_value_label_82']")
     private WebElement machineTypeSpan;
 
-    @FindBy(xpath = "//div[@id='select_container_113']//md-option/div")
+    @FindBy(xpath = "//div[@id='select_container_114']//md-option/div")
     private List<WebElement> machineTypeAnswer;
 
 
 
-    @FindBy(xpath = "(//div[@ng-transclude])[2]")
+    @FindBy(xpath = "(//div[@ng-transclude])[3]")
     private WebElement addGPU;
 
 
@@ -60,7 +61,7 @@ public class CalculatorPage extends BasePage {
     @FindBy(xpath = "//md-select[@placeholder='GPU type']")
     private WebElement gpuTypeSpan;
 
-    @FindBy(xpath = "//div[@id='select_container_457']//md-option/div")
+    @FindBy(xpath = "//div[@id='select_container_458']//md-option/div")
     private List<WebElement> gpuTypeAnswer;
 
 
@@ -68,31 +69,31 @@ public class CalculatorPage extends BasePage {
     @FindBy(xpath = "//md-select[@placeholder='Number of GPUs']")
     private WebElement numOfGPUSpan;
 
-    @FindBy(xpath = "//div[@id='select_container_459']//md-option/div")
+    @FindBy(xpath = "//div[@id='select_container_460']//md-option/div")
     private List<WebElement> numOfGPUAnswer;
 
 
 
-    @FindBy(xpath = "//md-select-value[@id='select_value_label_412']")
+    @FindBy(xpath = "//md-select-value[@id='select_value_label_413']")
     private WebElement localSSDSpan;
 
-    @FindBy(xpath = "//div[@id='select_container_414']//md-option/div")
+    @FindBy(xpath = "//div[@id='select_container_415']//md-option/div")
     private List<WebElement> localSSDAnswer;
 
 
 
-    @FindBy(xpath = "//md-select-value[@id='select_value_label_83']")
+    @FindBy(xpath = "//md-select-value[@id='select_value_label_84']")
     private WebElement datacenterLocationSpan;
 
-    @FindBy(xpath = "//div[@id='select_container_119']//md-option/div")
+    @FindBy(xpath = "//div[@id='select_container_120']//md-option/div")
     private List<WebElement> datacenterLocationAnswer;
 
 
 
-    @FindBy(xpath = "//md-select-value[@id='select_value_label_84']")
+    @FindBy(xpath = "//md-select-value[@id='select_value_label_85']")
     private WebElement commitedLocationSpan;
 
-    @FindBy(xpath = "//div[@id='select_container_126']//md-option/div")
+    @FindBy(xpath = "//div[@id='select_container_127']//md-option/div")
     private List<WebElement> commitedLocationAnswer;
 
 
@@ -121,7 +122,7 @@ public class CalculatorPage extends BasePage {
     @FindBy(xpath = "//button[@ng-click='cloudCartCtrl.showEmailForm();']")
     private WebElement mailButton;
 
-    @FindBy(xpath = "//input[@id='input_533']")
+    @FindBy(xpath = "//input[@id='input_534']")
     private WebElement mailAddress;
 
     @FindBy(xpath = "//button[@ng-click='emailQuote.emailQuote(true); emailQuote.$mdDialog.hide()']")
@@ -131,81 +132,114 @@ public class CalculatorPage extends BasePage {
         super(driver);
     }
 
-    public void computeEngineClick(){
-        computeEngine.click();
+    public CalculatorPage switchToFrame(WebElement frame){
+        waitForPageLoadComplete(WAIT_TIME);
+        getDriver().switchTo().frame(frame);
+        return this;
     }
 
-    public void setNumberOfInstances(String text){
+    public CalculatorPage computeEngineClick(){
+        computeEngine.click();
+        return this;
+    }
+
+    public CalculatorPage setNumberOfInstances(String text, long time){
+        waitForVisibilityOfElement(time, numberOfInstances);
         numberOfInstances.click();
         numberOfInstances.sendKeys(text);
+        return this;
+
     }
 
-    public void setOperatingSystem(long time){
+    public CalculatorPage setOperatingSystem(long time){
         operatingSystemSpan.click();
         waitForVisibilityOfElement(time, operatingSystemAnswer.get(0));
         operatingSystemAnswer.get(0).click();
+        scrollToElement(numberOfInstances);
+        return this;
     }
 
-    public void setSeries(long time) {
+    public CalculatorPage setSeries(long time) {
+        scrollToElement(numberOfInstances);
         seriesSpan.click();
         waitForVisibilityOfElement(time, seriesAnswer.get(0));
         seriesAnswer.get(0).click();
+        return this;
     }
 
-    public void setMachineType(long time) {
+    public CalculatorPage setMachineType(long time) {
         machineTypeSpan.click();
         waitForVisibilityOfElement(time, machineTypeAnswer.get(6));
         machineTypeAnswer.get(6).click();
+        return this;
     }
 
-    public void addGPUclick(long time){
+    public CalculatorPage addGPUclick(long time){
         addGPU.click();
         waitForVisibilityOfElement(time, gpuTypeSpan);
+        scrollToElement(seriesSpan);
+        return this;
     }
 
-    public void setGpuType(long time){
+    public CalculatorPage setGpuType(long time){
         gpuTypeSpan.click();
         waitForVisibilityOfElement(time, gpuTypeAnswer.get(1));
         gpuTypeAnswer.get(1).click();
+        return this;
     }
 
-    public void setNumOfGPU(long time){
+    public CalculatorPage setNumOfGPU(long time){
         numOfGPUSpan.click();
         waitForVisibilityOfElement(time, numOfGPUAnswer.get(1));
         numOfGPUAnswer.get(1).click();
+        scrollToElement(addGPU);
+        return this;
     }
 
-    public void setLocalSSD(long time){
+    public CalculatorPage setLocalSSD(long time){
+        scrollToElement(addGPU);
         localSSDSpan.click();
         waitForVisibilityOfElement(time, localSSDAnswer.get(2));
         localSSDAnswer.get(2).click();
+        return this;
     }
 
-    public void setDatacenterLocation(long time){
+    public CalculatorPage setDatacenterLocation(long time){
         datacenterLocationSpan.click();
-        waitForVisibilityOfElement(time, datacenterLocationAnswer.get(10));
-        datacenterLocationAnswer.get(10).click();
+        waitForVisibilityOfElement(time, datacenterLocationAnswer.get(11));
+        datacenterLocationAnswer.get(11).click();
+        return this;
     }
 
-    public void setCommitmentLocation(long time){
+    public CalculatorPage setCommitmentLocation(long time){
         commitedLocationSpan.click();
         waitForVisibilityOfElement(time, commitedLocationAnswer.get(1));
         commitedLocationAnswer.get(1).click();
+        return this;
     }
 
-    public void clickEstimateButton(){
+    public CalculatorPage clickEstimateButton(){
         estimateButton.click();
+        return this;
     }
 
-    public void mailButtonClick(long time){
+    public CalculatorPage mailButtonClick(long time){
         waitForVisibilityOfElement(time, mailButton);
         mailButton.click();
+        return this;
     }
 
-    public void setMailAddress(String mail, long time){
+    public CalculatorPage setMailAddress(String mail, long time){
         mailAddress.click();
         mailAddress.sendKeys(mail + "@yopmail.com", Keys.ENTER);
         sendEmail.click();
+        return this;
+    }
+
+    public CalculatorPage switchToNewWindow(String url){
+        getDriver().switchTo().newWindow(WindowType.TAB);
+        getDriver().get(url);
+        return this;
     }
 
 }

@@ -14,19 +14,20 @@ public class BringItOn extends BrowserControl {
 
     @Test
     public void bringItOn() {
-        homePage().openPage(PASTEBIN_URL);
-        homePage().codeFieldInsert(CODE);
-        homePage().scrollToElement(homePage().getCodeField());
-        homePage().setSyntaxHighlightingBash(WAIT_TIME);
-        homePage().pasteExpiration10Minutes(WAIT_TIME);
-        homePage().scrollToElement(homePage().getPasteName());
-        homePage().setPasteName(TITLE);
-        homePage().scrollToElement(homePage().getCreateNewPaste());
-        homePage().createNewPasteClick();
-        resultPage().waitForVisibilityOfElement(WAIT_TIME, resultPage().getBashTag());
-        Assert.assertTrue(driver().getTitle().contains(TITLE));
-        Assert.assertTrue(resultPage().getBashTegText().contains("Bash"));
-        Assert.assertEquals(resultPage().getTextareaWithCode().getText(), CODE);
+
+        homePage()
+                .openURL(PASTEBIN_URL)
+                .codeFieldInsert(CODE)
+                .setSyntaxHighlightingBash(WAIT_TIME)
+                .pasteExpiration10Minutes(WAIT_TIME)
+                .setPasteName(TITLE)
+                .createNewPasteClick()
+                .waitForVisibilityOfElement(WAIT_TIME, homePage().getBashTag());
+
+
+        Assert.assertTrue(homePage().getDriver().getTitle().contains(TITLE));
+        Assert.assertTrue(homePage().getBashTegText().contains("Bash"));
+        Assert.assertEquals(homePage().getTextareaWithCode().getText(), CODE);
     }
 
 }

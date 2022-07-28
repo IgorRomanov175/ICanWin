@@ -1,13 +1,14 @@
-package yopmailPages;
+package pages.yopmailPages;
 
-import basePage.BasePage;
+import org.openqa.selenium.Keys;
+import pages.basePage.BasePage;
 import lombok.Getter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 @Getter
-public class YopmailMailPage extends BasePage {
+public class YopmailPage extends BasePage {
 
     @FindBy(xpath = "//span[text()='Google Cloud Sales']")
     private WebElement mailTitle;
@@ -24,12 +25,26 @@ public class YopmailMailPage extends BasePage {
     @FindBy(xpath = "//iframe[@id='ifmail']")
     private WebElement frameMailText;
 
-    public YopmailMailPage(WebDriver driver) {
+    @FindBy(xpath = "//input[@class='ycptinput']")
+    private WebElement addNewMail;
+
+    public YopmailPage(WebDriver driver) {
         super(driver);
     }
 
-    public void refreshMailList(){
+    public YopmailPage addMail(String text){
+        addNewMail.sendKeys(text, Keys.ENTER);
+        return this;
+    }
+
+    public YopmailPage refreshMailList(){
         refresh.click();
+        return this;
+    }
+
+    public YopmailPage switchToWindow(String window){
+        getDriver().switchTo().window(window);
+        return this;
     }
 
 }

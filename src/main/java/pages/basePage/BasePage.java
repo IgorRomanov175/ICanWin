@@ -1,30 +1,20 @@
-package basePage;
+package pages.basePage;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.security.Key;
 import java.time.Duration;
 
 public abstract class BasePage {
 
     private final WebDriver driver;
+    public final static long WAIT_TIME = 20;
 
     public BasePage(WebDriver driver) {
         this.driver =  driver;
         PageFactory.initElements(driver, this);
-    }
-
-    public void openPage(String url){
-        driver.manage().window().maximize();
-        driver.get(url);
-    }
-
-    public void switchToNewTab(String url){
-        driver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "t");
-        driver.get(url);
     }
 
     public void switchToPreviousTab(){
@@ -34,6 +24,10 @@ public abstract class BasePage {
     public void waitForPageLoadComplete(long waitTime) {
         new WebDriverWait(driver, Duration.ofSeconds(waitTime)).until
                 (webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
+    }
+
+    public WebDriver getDriver(){
+        return driver;
     }
 
     public void waitForVisibilityOfElement(long waitTime, WebElement element){
