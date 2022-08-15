@@ -3,6 +3,7 @@ package TestCase;
 import Browser.BrowserControl;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import tools.retry.Retry;
 
 public class HurtMePlenty extends BrowserControl {
 
@@ -15,7 +16,9 @@ public class HurtMePlenty extends BrowserControl {
     String commitmentTerm = "Commitment term: 1 Year";
     String totalCost = "Total Estimated Cost: USD 1,081.20 per 1 month";
 
-    @Test
+    @Test(
+            retryAnalyzer = Retry.class
+    )
     public void hurtMePlenty() {
         googleCloudHomePage().getDriver().get(GOOGLE_CLOUD_URL);
         googleCloudHomePage().searchFieldInput(SEARCH);

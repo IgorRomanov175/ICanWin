@@ -2,7 +2,9 @@ package TestCase;
 
 import Browser.BrowserControl;
 import org.testng.Assert;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import tools.retry.Retry;
 
 public class BringItOn extends BrowserControl {
 
@@ -12,11 +14,14 @@ public class BringItOn extends BrowserControl {
 
     private final static String TITLE = "how to gain dominance among developers";
 
-    @Test
+    @Test(
+            retryAnalyzer = Retry.class
+         )
     public void bringItOn() {
 
         homePage()
                 .openURL(PASTEBIN_URL)
+                .closeAdd()
                 .codeFieldInsert(CODE)
                 .setSyntaxHighlightingBash(WAIT_TIME)
                 .pasteExpiration10Minutes(WAIT_TIME)

@@ -4,6 +4,7 @@ import Browser.BrowserControl;
 import org.openqa.selenium.WindowType;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import tools.retry.Retry;
 
 
 import java.util.ArrayList;
@@ -16,7 +17,9 @@ public class Hardcore extends BrowserControl {
 
     ArrayList<String> tabs;
 
-    @Test
+    @Test(
+            retryAnalyzer = Retry.class
+    )
     public void hardcore() throws InterruptedException {
         googleCloudHomePage().getDriver().get(GOOGLE_CLOUD_URL);
         googleCloudHomePage().searchFieldInput("Google Cloud Platform Pricing Calculator");

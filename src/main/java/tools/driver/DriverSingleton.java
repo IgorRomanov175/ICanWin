@@ -1,4 +1,4 @@
-package driver;
+package tools.driver;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,15 +13,15 @@ public class DriverSingleton {
 
     private static WebDriver driver;
 
-    public static WebDriver getDriver(){
+    public static WebDriver getDriver(String browser){
         if(null == driver){
-            if(Objects.equals(System.getProperty("browser"), "edge")){
+            if(Objects.equals(System.getProperty("browser"), "edge") || browser.equals("edge")){
                 WebDriverManager.edgedriver().setup();
                 driver = new EdgeDriver();
-            } else if(Objects.equals(System.getProperty("browser"), "firefox")){
+            } else if(Objects.equals(System.getProperty("browser"), "firefox") || browser.equals("firefox")){
                 WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
-            } else if (Objects.equals(System.getProperty("browser"), "chrome")) {
+            } else if (Objects.equals(System.getProperty("browser"), "chrome") || browser.equals("chrome")) {
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
             }

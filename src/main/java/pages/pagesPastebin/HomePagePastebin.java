@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.Objects;
+
 @Getter
 public class HomePagePastebin extends BasePage {
 
@@ -14,6 +16,12 @@ public class HomePagePastebin extends BasePage {
 
     @FindBy(xpath = "//label[text()='Syntax Highlighting:']/following-sibling::div//span[@class='select2-selection__rendered']")
     private WebElement syntaxHighlightingSpan;
+
+    @FindBy(xpath = "//div[@id='vi-smartbanner']/vli/vli/vli")
+    private WebElement chromeAddCloseButton;
+
+    @FindBy(xpath = "//vli[@id='hideSlideBanner']")
+    private WebElement firefoxAddCloseButton;
 
     @FindBy(xpath = "//li[text()='Bash']")
     private WebElement syntaxHighlightingAnswer;
@@ -40,17 +48,24 @@ public class HomePagePastebin extends BasePage {
         super(driver);
     }
 
-    public HomePagePastebin openURL(String url){
+    public HomePagePastebin openURL(String url) {
         getDriver().get(url);
         return this;
     }
 
-    public HomePagePastebin codeFieldInsert(String code){
+    public HomePagePastebin closeAdd() {
+        waitForClickableElement(WAIT_TIME, chromeAddCloseButton);
+        firefoxAddCloseButton.click();
+        return this;
+    }
+
+    public HomePagePastebin codeFieldInsert(String code) {
+        scrollToElement(codeField);
         codeField.sendKeys(code);
         return this;
     }
 
-    public HomePagePastebin pasteExpiration10Minutes(long time){
+    public HomePagePastebin pasteExpiration10Minutes(long time) {
         pasteExpirationSpan.click();
         waitForClickableElement(time, pasteExpirationAnswer);
         pasteExpirationAnswer.click();
@@ -58,19 +73,19 @@ public class HomePagePastebin extends BasePage {
         return this;
     }
 
-    public HomePagePastebin setSyntaxHighlightingBash(long time){
+    public HomePagePastebin setSyntaxHighlightingBash(long time) {
         syntaxHighlightingSpan.click();
         waitForClickableElement(time, syntaxHighlightingAnswer);
         syntaxHighlightingAnswer.click();
         return this;
     }
 
-    public HomePagePastebin setPasteName(String name){
+    public HomePagePastebin setPasteName(String name) {
         pasteName.sendKeys(name);
         return this;
     }
 
-    public HomePagePastebin createNewPasteClick(){
+    public HomePagePastebin createNewPasteClick() {
         createNewPaste.click();
         return this;
     }
@@ -79,7 +94,7 @@ public class HomePagePastebin extends BasePage {
         super.scrollToElement(element);
     }
 
-    public String getBashTegText(){
+    public String getBashTegText() {
         return getBashTag().getText();
     }
 }
