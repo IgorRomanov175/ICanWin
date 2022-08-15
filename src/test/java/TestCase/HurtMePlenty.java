@@ -13,7 +13,7 @@ public class HurtMePlenty extends BrowserControl {
     String region = "Region: Frankfurt";
     String localSSD = "Local SSD: 2x375 GiB\nCommitted Use Discount applied";
     String commitmentTerm = "Commitment term: 1 Year";
-    String totalCost = "Total Estimated Cost: USD 4,024.56 per 1 month";
+    String totalCost = "Total Estimated Cost: USD 1,081.20 per 1 month";
 
     @Test
     public void hurtMePlenty() {

@@ -13,7 +13,7 @@ public class YopmailPage extends BasePage {
     @FindBy(xpath = "//span[text()='Google Cloud Sales']")
     private WebElement mailTitle;
 
-    @FindBy(xpath = "//h2[text()='Estimated Monthly Cost: USD 4,024.56']")
+    @FindBy(xpath = "//h2[contains(text(), 'Estimated Monthly Cost:')]")
     private WebElement totalCost;
 
     @FindBy(xpath = "//button[@id='refresh']")

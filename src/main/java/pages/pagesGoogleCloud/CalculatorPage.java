@@ -24,31 +24,31 @@ public class CalculatorPage extends BasePage {
 
 
 
-    @FindBy(xpath = "//input[@id='input_86']")
+    @FindBy(xpath = "//label[contains(text(), 'Number of instances')]/following-sibling::input")
     private WebElement numberOfInstances;
 
 
 
-    @FindBy(xpath = "//md-select-value[@id='select_value_label_78']")
+    @FindBy(xpath = "//label[contains(text() , 'Operating System / Software')]/following-sibling::md-select")
     private WebElement operatingSystemSpan;
 
-    @FindBy(xpath = "//div[@id='select_container_100']//md-option/div")
+    @FindBy(xpath = "//div[contains(text() , 'Free: Debian')]/parent::md-option/parent::md-content/md-option")
     private List<WebElement> operatingSystemAnswer;
 
 
 
-    @FindBy(xpath = "//md-select-value[@id='select_value_label_81']")
+    @FindBy(xpath = "//label[contains(text(), 'Series')]/following-sibling::md-select")
     private WebElement seriesSpan;
 
-    @FindBy(xpath = "//div[@id='select_container_112']//md-option/div")
+    @FindBy(xpath = "//div[contains(text(), 'N1')]/parent::md-option/parent::md-content/md-option")
     private List<WebElement> seriesAnswer;
 
 
 
-    @FindBy(xpath = "//md-select-value[@id='select_value_label_82']")
+    @FindBy(xpath = "//label[contains(text(), 'Machine type')]/following-sibling::md-select")
     private WebElement machineTypeSpan;
 
-    @FindBy(xpath = "//div[@id='select_container_114']//md-option/div")
+    @FindBy(xpath = "//label[contains(text(), 'standard')]/following-sibling::md-option")
     private List<WebElement> machineTypeAnswer;
 
 
@@ -61,7 +61,7 @@ public class CalculatorPage extends BasePage {
     @FindBy(xpath = "//md-select[@placeholder='GPU type']")
     private WebElement gpuTypeSpan;
 
-    @FindBy(xpath = "//div[@id='select_container_458']//md-option/div")
+    @FindBy(xpath = "//div[contains(text(), 'NVIDIA Tesla K80')]/parent::md-option/parent::md-content/md-option")
     private List<WebElement> gpuTypeAnswer;
 
 
@@ -69,31 +69,34 @@ public class CalculatorPage extends BasePage {
     @FindBy(xpath = "//md-select[@placeholder='Number of GPUs']")
     private WebElement numOfGPUSpan;
 
-    @FindBy(xpath = "//div[@id='select_container_460']//md-option/div")
+    @FindBy(xpath = "//md-option[@ng-disabled='item.value != 0 && item.value < listingCtrl.minGPU']")
     private List<WebElement> numOfGPUAnswer;
 
 
 
-    @FindBy(xpath = "//md-select-value[@id='select_value_label_413']")
+    @FindBy(xpath = "//md-select[@ng-model='listingCtrl.computeServer.ssd']")
     private WebElement localSSDSpan;
 
-    @FindBy(xpath = "//div[@id='select_container_415']//md-option/div")
+    @FindBy(xpath = "//div[contains(text(), '2x375')]/parent::md-option/parent::md-content/md-option")
     private List<WebElement> localSSDAnswer;
 
 
 
-    @FindBy(xpath = "//md-select-value[@id='select_value_label_84']")
+    @FindBy(xpath = "//md-select[@ng-model='listingCtrl.computeServer.location']")
     private WebElement datacenterLocationSpan;
 
-    @FindBy(xpath = "//div[@id='select_container_120']//md-option/div")
+    @FindBy(xpath = "//md-option[@ng-repeat='item in listingCtrl.fullRegionList | filter:listingCtrl.inputRegionText.computeServer']")
     private List<WebElement> datacenterLocationAnswer;
 
 
 
-    @FindBy(xpath = "//md-select-value[@id='select_value_label_85']")
+    @FindBy(xpath = "//md-select[@ng-disabled='listingCtrl.isCudDisabled']")
     private WebElement commitedLocationSpan;
 
-    @FindBy(xpath = "//div[@id='select_container_127']//md-option/div")
+    @FindBy(xpath = "//div[@class='md-select-menu-container md-active md-clickable']//div[text()='None']")
+    private WebElement commitedLocationWaiter;
+
+    @FindBy(xpath = "//div[@class='md-select-menu-container md-active md-clickable']//md-option")
     private List<WebElement> commitedLocationAnswer;
 
 
@@ -122,7 +125,7 @@ public class CalculatorPage extends BasePage {
     @FindBy(xpath = "//button[@ng-click='cloudCartCtrl.showEmailForm();']")
     private WebElement mailButton;
 
-    @FindBy(xpath = "//input[@id='input_534']")
+    @FindBy(xpath = "//input[@ng-model='emailQuote.user.email']")
     private WebElement mailAddress;
 
     @FindBy(xpath = "//button[@ng-click='emailQuote.emailQuote(true); emailQuote.$mdDialog.hide()']")
@@ -169,8 +172,8 @@ public class CalculatorPage extends BasePage {
 
     public CalculatorPage setMachineType(long time) {
         machineTypeSpan.click();
-        waitForVisibilityOfElement(time, machineTypeAnswer.get(6));
-        machineTypeAnswer.get(6).click();
+        waitForVisibilityOfElement(time, machineTypeAnswer.get(3));
+        machineTypeAnswer.get(3).click();
         return this;
     }
 
@@ -212,8 +215,9 @@ public class CalculatorPage extends BasePage {
     }
 
     public CalculatorPage setCommitmentLocation(long time){
+        waitForVisibilityOfElement(time, commitedLocationSpan);
         commitedLocationSpan.click();
-        waitForVisibilityOfElement(time, commitedLocationAnswer.get(1));
+        waitForVisibilityOfElement(time, commitedLocationWaiter);
         commitedLocationAnswer.get(1).click();
         return this;
     }
