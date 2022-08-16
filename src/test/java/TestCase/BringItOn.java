@@ -1,6 +1,6 @@
 package TestCase;
 
-import Browser.BrowserControl;
+import BrowserConfig.BrowserControl;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.TestDataReader;

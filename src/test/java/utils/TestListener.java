@@ -5,14 +5,13 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import tools.driver.DriverSingleton;
 
 import java.io.File;
 import java.io.IOException;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
-import static Browser.BrowserControl.returnDriver;
+import static BrowserConfig.BrowserControl.returnDriver;
 
 public class TestListener implements ITestListener {
 

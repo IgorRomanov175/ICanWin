@@ -1,10 +1,8 @@
 package TestCase;
 
-import Browser.BrowserControl;
-import org.openqa.selenium.WindowType;
+import BrowserConfig.BrowserControl;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import tools.retry.Retry;
 import utils.TestDataReader;
 
 

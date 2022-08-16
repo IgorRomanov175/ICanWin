@@ -1,9 +1,8 @@
 package TestCase;
 
-import Browser.BrowserControl;
+import BrowserConfig.BrowserControl;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import tools.retry.Retry;
 import utils.TestDataReader;
 
 public class HurtMePlenty extends BrowserControl {
