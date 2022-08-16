@@ -1,5 +1,6 @@
 package Browser;
 
+import org.testng.annotations.Listeners;
 import tools.driver.DriverSingleton;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
@@ -10,14 +11,17 @@ import pages.pagesGoogleCloud.GoogleCloudHomePage;
 import pages.pagesGoogleCloud.SearchPage;
 import pages.pagesPastebin.HomePagePastebin;
 import pages.yopmailPages.YopmailPage;
+import utils.TestListener;
 
+@Listeners({TestListener.class})
 public class BrowserControl {
 
     public final static String PASTEBIN_URL = "https://pastebin.com/";
     public final static String GOOGLE_CLOUD_URL = "https://cloud.google.com/";
-    public final static long WAIT_TIME = 5;
+    public final static long WAIT_TIME = 20;
 
-    private WebDriver driver;
+    private static WebDriver driver;
+
 
     @Parameters({"browser"})
     @BeforeTest
@@ -32,6 +36,9 @@ public class BrowserControl {
         DriverSingleton.closeDriver();
     }
 
+    public static WebDriver returnDriver(){
+        return driver;
+    }
 
     public HomePagePastebin homePage(){
         return new HomePagePastebin(driver);

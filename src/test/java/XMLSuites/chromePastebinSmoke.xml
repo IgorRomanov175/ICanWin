@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 
-<suite name="SmokeChrome">
+<suite name="Chrome Pastebin Smoke test">
 
     <test name="iCanWin">
         <parameter name="browser" value="chrome"/>
@@ -21,28 +21,6 @@
             <class name="TestCase.BringItOn">
                 <methods>
                     <include name="bringItOn"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-
-    <test name="hurtMePlenty">
-        <parameter name="browser" value="chrome"/>
-        <classes>
-            <class name="TestCase.HurtMePlenty">
-                <methods>
-                    <include name="hurtMePlenty"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-
-    <test name="hardcore">
-        <parameter name="browser" value="chrome"/>
-        <classes>
-            <class name="TestCase.Hardcore">
-                <methods>
-                    <include name="hardcore"/>
                 </methods>
             </class>
         </classes>

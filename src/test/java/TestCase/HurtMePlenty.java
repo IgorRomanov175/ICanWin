@@ -4,24 +4,23 @@ import Browser.BrowserControl;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import tools.retry.Retry;
+import utils.TestDataReader;
 
 public class HurtMePlenty extends BrowserControl {
 
-    private final static String SEARCH = "Google Cloud Platform Pricing Calculator";
+    private final static String SEARCH = "HurtMePlenty.test.data.search";
 
-    String vmClass = "Compute Engine";
-    String instanceType = "Instance type: n1-standard-8\nCommitted Use Discount applied";
-    String region = "Region: Frankfurt";
-    String localSSD = "Local SSD: 2x375 GiB\nCommitted Use Discount applied";
-    String commitmentTerm = "Commitment term: 1 Year";
-    String totalCost = "Total Estimated Cost: USD 1,081.20 per 1 month";
+    String vmClass = "HurtMePlenty.test.data.vmClass";
+    String instanceType = "HurtMePlenty.test.data.instanceType";
+    String region = "HurtMePlenty.test.data.region";
+    String localSSD = "HurtMePlenty.test.data.localSSD";
+    String commitmentTerm = "HurtMePlenty.test.data.commitmentTerm";
+    String totalCost = "HurtMePlenty.test.data.totalCost";
 
-    @Test(
-            retryAnalyzer = Retry.class
-    )
+    @Test
     public void hurtMePlenty() {
         googleCloudHomePage().getDriver().get(GOOGLE_CLOUD_URL);
-        googleCloudHomePage().searchFieldInput(SEARCH);
+        googleCloudHomePage().searchFieldInput(TestDataReader.getTestData(SEARCH));
 
 
         searchPage().waitForClickableElement(WAIT_TIME, searchPage().getPricingLink());
@@ -45,11 +44,11 @@ public class HurtMePlenty extends BrowserControl {
                 .clickEstimateButton();
 
 
-        Assert.assertEquals(vmClass, calculatorPage().getAssertVMClass().getText());
-        Assert.assertEquals(instanceType, calculatorPage().getAssertInstanceType().getText());
-        Assert.assertEquals(region, calculatorPage().getAssertRegion().getText());
-        Assert.assertEquals(localSSD, calculatorPage().getAssertLocalSSD().getText());
-        Assert.assertEquals(commitmentTerm, calculatorPage().getAssertCommitmentTerm().getText());
-        Assert.assertEquals(totalCost, calculatorPage().getAssertTotalCost().getText());
+        Assert.assertEquals(TestDataReader.getTestData(vmClass), calculatorPage().getAssertVMClass().getText());
+        Assert.assertEquals(TestDataReader.getTestData(instanceType), calculatorPage().getAssertInstanceType().getText());
+        Assert.assertEquals(TestDataReader.getTestData(region), calculatorPage().getAssertRegion().getText());
+        Assert.assertEquals(TestDataReader.getTestData(localSSD), calculatorPage().getAssertLocalSSD().getText());
+        Assert.assertEquals(TestDataReader.getTestData(commitmentTerm), calculatorPage().getAssertCommitmentTerm().getText());
+        Assert.assertEquals(TestDataReader.getTestData(totalCost), calculatorPage().getAssertTotalCost().getText());
     }
 }

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+
+<suite name="Edge Pastebin Smoke test">
+
+    <test name="iCanWin">
+        <parameter name="browser" value="edge"/>
+        <classes>
+            <class name="TestCase.ICanWin">
+                <methods>
+                    <include name="iCanWin"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="bringItOn">
+        <parameter name="browser" value="edge"/>
+        <classes>
+            <class name="TestCase.BringItOn">
+                <methods>
+                    <include name="bringItOn"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

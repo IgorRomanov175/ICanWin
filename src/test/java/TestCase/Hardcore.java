@@ -5,6 +5,7 @@ import org.openqa.selenium.WindowType;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import tools.retry.Retry;
+import utils.TestDataReader;
 
 
 import java.util.ArrayList;
@@ -12,17 +13,17 @@ import java.util.ArrayList;
 
 public class Hardcore extends BrowserControl {
 
-    private final static String YOPMAIL_URL = "https://yopmail.com/uk/";
-    String mailText = "AddMailForGoogleCloud6";
+    private final static String YOPMAIL_URL = "Hardcore.test.data.mail.url";
+    public static final String SEARCH = "Hardcore.test.data.search";
+    String mailText = "Hardcore.test.data.mail.url.text";
 
     ArrayList<String> tabs;
 
-    @Test(
-            retryAnalyzer = Retry.class
-    )
+    @Test
     public void hardcore() throws InterruptedException {
         googleCloudHomePage().getDriver().get(GOOGLE_CLOUD_URL);
-        googleCloudHomePage().searchFieldInput("Google Cloud Platform Pricing Calculator");
+        System.out.println(TestDataReader.getTestData(SEARCH));
+        googleCloudHomePage().searchFieldInput(TestDataReader.getTestData(SEARCH));
         searchPage().waitForClickableElement(WAIT_TIME, searchPage().getPricingLink());
         searchPage().pricingLinkClick();
         calculatorPage()
@@ -40,10 +41,10 @@ public class Hardcore extends BrowserControl {
                 .setDatacenterLocation(WAIT_TIME)
                 .setCommitmentLocation(WAIT_TIME)
                 .clickEstimateButton()
-                .switchToNewWindow(YOPMAIL_URL);
+                .switchToNewWindow(TestDataReader.getTestData(YOPMAIL_URL));
 
         yopmailPage()
-                .addMail(mailText)
+                .addMail(TestDataReader.getTestData(mailText))
                 .switchToPreviousTab();
 
 
@@ -54,7 +55,7 @@ public class Hardcore extends BrowserControl {
                 .switchToFrame(calculatorPage().getFrame1())
                 .switchToFrame(calculatorPage().getFrame2())
                 .mailButtonClick(WAIT_TIME)
-                .setMailAddress(mailText, WAIT_TIME);
+                .setMailAddress(TestDataReader.getTestData(mailText), WAIT_TIME);
 
         yopmailPage().switchToWindow(tabs.get(1));
         Thread.sleep(10000);

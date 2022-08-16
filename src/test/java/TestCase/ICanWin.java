@@ -1,26 +1,24 @@
 package TestCase;
 
 import Browser.BrowserControl;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import tools.retry.Retry;
+import utils.TestDataReader;
 
 
 public class ICanWin extends BrowserControl {
 
-    String code = "Hello from WebDriver";
-    String title = "helloweb";
+    String code = "ICanWin.test.data.code";
+    String title = "ICanWin.test.data.title";
 
-    @Test(
-            retryAnalyzer = Retry.class
-    )
+    @Test
     public void iCanWin(){
         homePage()
                 .openURL(PASTEBIN_URL)
                 .closeAdd()
-                .codeFieldInsert(code)
+                .codeFieldInsert(TestDataReader.getTestData(code))
                 .pasteExpiration10Minutes(WAIT_TIME)
-                .setPasteName(title)
+                .setPasteName(TestDataReader.getTestData(title))
                 .createNewPasteClick();
     }
 

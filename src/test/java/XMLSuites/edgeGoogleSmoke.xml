@@ -2,29 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 
-<suite name="SmokeFirefox">
-
-    <test name="iCanWin">
-        <parameter name="browser" value="edge"/>
-        <classes>
-            <class name="TestCase.ICanWin">
-                <methods>
-                    <include name="iCanWin"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-
-    <test name="bringItOn">
-        <parameter name="browser" value="edge"/>
-        <classes>
-            <class name="TestCase.BringItOn">
-                <methods>
-                    <include name="bringItOn"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
+<suite name="Edge Google Smoke test">
 
     <test name="hurtMePlenty">
         <parameter name="browser" value="edge"/>
