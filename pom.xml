@@ -59,12 +59,12 @@
                             <suiteXmlFile>
                                 src\test\java\XMLSuites\edgeGoogleSmoke.xml
                             </suiteXmlFile>
-                            <suiteXmlFile>
-                                src\test\java\XMLSuites\chromePastebinSmoke.xml
-                            </suiteXmlFile>
-                            <suiteXmlFile>
-                                src\test\java\XMLSuites\edgePastebinSmoke.xml
-                            </suiteXmlFile>
+<!--                            <suiteXmlFile>-->
+<!--                                src\test\java\XMLSuites\chromePastebinSmoke.xml-->
+<!--                            </suiteXmlFile>-->
+<!--                            <suiteXmlFile>-->
+<!--                                src\test\java\XMLSuites\edgePastebinSmoke.xml-->
+<!--                            </suiteXmlFile>-->
                         </suiteXmlFiles>
                     </configuration>
                 </plugin>
