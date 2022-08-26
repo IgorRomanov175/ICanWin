@@ -14,6 +14,8 @@ import pages.pagesPastebin.HomePagePastebin;
 import pages.yopmailPages.YopmailPage;
 import utils.TestListener;
 
+import java.util.ResourceBundle;
+
 @Listeners({TestListener.class})
 public class BrowserControl {
 
@@ -60,4 +62,11 @@ public class BrowserControl {
     public YopmailPage yopmailPage(){
         return new YopmailPage(driver);
     }
+
+    private static final ResourceBundle resourceBundle = ResourceBundle.getBundle(System.getProperty("environment"));
+
+    public static String getTestData(String key) {
+        return resourceBundle.getString(key);
+    }
+
 }

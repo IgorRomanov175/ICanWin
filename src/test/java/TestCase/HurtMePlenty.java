@@ -18,7 +18,7 @@ public class HurtMePlenty extends BrowserControl {
     @Test
     public void hurtMePlenty() {
         googleCloudHomePage().getDriver().get(GOOGLE_CLOUD_URL);
-        googleCloudHomePage().searchFieldInput(TestDataReader.getTestData(SEARCH));
+        googleCloudHomePage().searchFieldInput(getTestData(SEARCH));
 
 
         searchPage().waitForClickableElement(WAIT_TIME, searchPage().getPricingLink());
@@ -42,11 +42,11 @@ public class HurtMePlenty extends BrowserControl {
                 .clickEstimateButton();
 
 
-        Assert.assertEquals(TestDataReader.getTestData(vmClass), calculatorPage().getAssertVMClass().getText());
-        Assert.assertEquals(TestDataReader.getTestData(instanceType), calculatorPage().getAssertInstanceType().getText());
-        Assert.assertEquals(TestDataReader.getTestData(region), calculatorPage().getAssertRegion().getText());
-        Assert.assertEquals(TestDataReader.getTestData(localSSD), calculatorPage().getAssertLocalSSD().getText());
-        Assert.assertEquals(TestDataReader.getTestData(commitmentTerm), calculatorPage().getAssertCommitmentTerm().getText());
-        Assert.assertEquals(TestDataReader.getTestData(totalCost), calculatorPage().getAssertTotalCost().getText());
+        Assert.assertEquals(getTestData(vmClass), calculatorPage().getAssertVMClass().getText());
+        Assert.assertEquals(getTestData(instanceType), calculatorPage().getAssertInstanceType().getText());
+        Assert.assertEquals(getTestData(region), calculatorPage().getAssertRegion().getText());
+        Assert.assertEquals(getTestData(localSSD), calculatorPage().getAssertLocalSSD().getText());
+        Assert.assertEquals(getTestData(commitmentTerm), calculatorPage().getAssertCommitmentTerm().getText());
+        Assert.assertEquals(getTestData(totalCost), calculatorPage().getAssertTotalCost().getText());
     }
 }

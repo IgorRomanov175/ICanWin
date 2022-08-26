@@ -15,17 +15,17 @@ public class BringItOn extends BrowserControl {
         homePage()
                 .openURL(PASTEBIN_URL)
                 .closeAdd()
-                .codeFieldInsert(TestDataReader.getTestData(CODE))
+                .codeFieldInsert(getTestData(CODE))
                 .setSyntaxHighlightingBash(WAIT_TIME)
                 .pasteExpiration10Minutes(WAIT_TIME)
-                .setPasteName(TestDataReader.getTestData(TITLE))
+                .setPasteName(getTestData(TITLE))
                 .createNewPasteClick()
                 .waitForVisibilityOfElement(WAIT_TIME, homePage().getBashTag());
 
 
-        Assert.assertTrue(homePage().getDriver().getTitle().contains(TestDataReader.getTestData(TITLE)));
+        Assert.assertTrue(homePage().getDriver().getTitle().contains(getTestData(TITLE)));
         Assert.assertTrue(homePage().getBashTegText().contains("Bash"));
-        Assert.assertEquals(homePage().getTextareaWithCode().getText(), TestDataReader.getTestData(CODE));
+        Assert.assertEquals(homePage().getTextareaWithCode().getText(), getTestData(CODE));
     }
 
 }

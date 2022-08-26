@@ -13,9 +13,9 @@ public class ICanWin extends BrowserControl {
         homePage()
                 .openURL(PASTEBIN_URL)
                 .closeAdd()
-                .codeFieldInsert(TestDataReader.getTestData(code))
+                .codeFieldInsert(getTestData(code))
                 .pasteExpiration10Minutes(WAIT_TIME)
-                .setPasteName(TestDataReader.getTestData(title))
+                .setPasteName(getTestData(title))
                 .createNewPasteClick();
     }
 

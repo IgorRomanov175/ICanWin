@@ -19,8 +19,8 @@ public class Hardcore extends BrowserControl {
     @Test
     public void hardcore() throws InterruptedException {
         googleCloudHomePage().getDriver().get(GOOGLE_CLOUD_URL);
-        System.out.println(TestDataReader.getTestData(SEARCH));
-        googleCloudHomePage().searchFieldInput(TestDataReader.getTestData(SEARCH));
+        System.out.println(getTestData(SEARCH));
+        googleCloudHomePage().searchFieldInput(getTestData(SEARCH));
         searchPage().waitForClickableElement(WAIT_TIME, searchPage().getPricingLink());
         searchPage().pricingLinkClick();
         calculatorPage()
@@ -38,10 +38,10 @@ public class Hardcore extends BrowserControl {
                 .setDatacenterLocation(WAIT_TIME)
                 .setCommitmentLocation(WAIT_TIME)
                 .clickEstimateButton()
-                .switchToNewWindow(TestDataReader.getTestData(YOPMAIL_URL));
+                .switchToNewWindow(getTestData(YOPMAIL_URL));
 
         yopmailPage()
-                .addMail(TestDataReader.getTestData(mailText))
+                .addMail(getTestData(mailText))
                 .switchToPreviousTab();
 
 
@@ -52,7 +52,7 @@ public class Hardcore extends BrowserControl {
                 .switchToFrame(calculatorPage().getFrame1())
                 .switchToFrame(calculatorPage().getFrame2())
                 .mailButtonClick(WAIT_TIME)
-                .setMailAddress(TestDataReader.getTestData(mailText), WAIT_TIME);
+                .setMailAddress(getTestData(mailText), WAIT_TIME);
 
         yopmailPage().switchToWindow(tabs.get(1));
         Thread.sleep(10000);
