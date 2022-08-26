@@ -146,78 +146,78 @@ public class CalculatorPage extends BasePage {
         return this;
     }
 
-    public CalculatorPage setNumberOfInstances(String text, long time){
-        waitForVisibilityOfElement(time, numberOfInstances);
+    public CalculatorPage setNumberOfInstances(String text){
+        waitForVisibilityOfElement(WAIT_TIME, numberOfInstances);
         numberOfInstances.click();
         numberOfInstances.sendKeys(text);
         return this;
 
     }
 
-    public CalculatorPage setOperatingSystem(long time){
+    public CalculatorPage setOperatingSystem(){
         operatingSystemSpan.click();
-        waitForVisibilityOfElement(time, operatingSystemAnswer.get(0));
+        waitForVisibilityOfElement(WAIT_TIME, operatingSystemAnswer.get(0));
         operatingSystemAnswer.get(0).click();
         scrollToElement(numberOfInstances);
         return this;
     }
 
-    public CalculatorPage setSeries(long time) {
+    public CalculatorPage setSeries() {
         scrollToElement(numberOfInstances);
         seriesSpan.click();
-        waitForVisibilityOfElement(time, seriesAnswer.get(0));
+        waitForVisibilityOfElement(WAIT_TIME, seriesAnswer.get(0));
         seriesAnswer.get(0).click();
         return this;
     }
 
-    public CalculatorPage setMachineType(long time) {
+    public CalculatorPage setMachineType() {
         machineTypeSpan.click();
-        waitForVisibilityOfElement(time, machineTypeAnswer.get(3));
+        waitForVisibilityOfElement(WAIT_TIME, machineTypeAnswer.get(3));
         machineTypeAnswer.get(3).click();
         return this;
     }
 
-    public CalculatorPage addGPUclick(long time){
+    public CalculatorPage addGPUclick(){
         addGPU.click();
-        waitForVisibilityOfElement(time, gpuTypeSpan);
+        waitForVisibilityOfElement(WAIT_TIME, gpuTypeSpan);
         scrollToElement(seriesSpan);
         return this;
     }
 
-    public CalculatorPage setGpuType(long time){
+    public CalculatorPage setGpuType(){
         gpuTypeSpan.click();
-        waitForVisibilityOfElement(time, gpuTypeAnswer.get(1));
+        waitForVisibilityOfElement(WAIT_TIME, gpuTypeAnswer.get(1));
         gpuTypeAnswer.get(1).click();
         return this;
     }
 
-    public CalculatorPage setNumOfGPU(long time){
+    public CalculatorPage setNumOfGPU(){
         numOfGPUSpan.click();
-        waitForVisibilityOfElement(time, numOfGPUAnswer.get(1));
+        waitForVisibilityOfElement(WAIT_TIME, numOfGPUAnswer.get(1));
         numOfGPUAnswer.get(1).click();
         scrollToElement(addGPU);
         return this;
     }
 
-    public CalculatorPage setLocalSSD(long time){
+    public CalculatorPage setLocalSSD(){
         scrollToElement(addGPU);
         localSSDSpan.click();
-        waitForVisibilityOfElement(time, localSSDAnswer.get(2));
+        waitForVisibilityOfElement(WAIT_TIME, localSSDAnswer.get(2));
         localSSDAnswer.get(2).click();
         return this;
     }
 
-    public CalculatorPage setDatacenterLocation(long time){
+    public CalculatorPage setDatacenterLocation(){
         datacenterLocationSpan.click();
-        waitForVisibilityOfElement(time, datacenterLocationAnswer.get(11));
+        waitForVisibilityOfElement(WAIT_TIME, datacenterLocationAnswer.get(11));
         datacenterLocationAnswer.get(11).click();
         return this;
     }
 
-    public CalculatorPage setCommitmentLocation(long time){
-        waitForVisibilityOfElement(time, commitedLocationSpan);
+    public CalculatorPage setCommitmentLocation(){
+        waitForVisibilityOfElement(WAIT_TIME, commitedLocationSpan);
         commitedLocationSpan.click();
-        waitForVisibilityOfElement(time, commitedLocationWaiter);
+        waitForVisibilityOfElement(WAIT_TIME, commitedLocationWaiter);
         commitedLocationAnswer.get(1).click();
         return this;
     }
@@ -227,13 +227,14 @@ public class CalculatorPage extends BasePage {
         return this;
     }
 
-    public CalculatorPage mailButtonClick(long time){
-        waitForVisibilityOfElement(time, mailButton);
+    public CalculatorPage mailButtonClick(){
+        waitForVisibilityOfElement(WAIT_TIME, mailButton);
         mailButton.click();
         return this;
     }
 
-    public CalculatorPage setMailAddress(String mail, long time){
+    public CalculatorPage setMailAddress(String mail){
+        waitForVisibilityOfElement(WAIT_TIME, mailAddress);
         mailAddress.click();
         mailAddress.sendKeys(mail + "@yopmail.com", Keys.ENTER);
         scrollToElement(mailAddress);

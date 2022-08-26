@@ -27,16 +27,16 @@ public class Hardcore extends BrowserControl {
                 .switchToFrame(calculatorPage().getFrame1())
                 .switchToFrame(calculatorPage().getFrame2())
                 .computeEngineClick()
-                .setNumberOfInstances("4", WAIT_TIME)
-                .setOperatingSystem(WAIT_TIME)
-                .setSeries(WAIT_TIME)
-                .setMachineType(WAIT_TIME)
-                .addGPUclick(WAIT_TIME)
-                .setGpuType(WAIT_TIME)
-                .setNumOfGPU(WAIT_TIME)
-                .setLocalSSD(WAIT_TIME)
-                .setDatacenterLocation(WAIT_TIME)
-                .setCommitmentLocation(WAIT_TIME)
+                .setNumberOfInstances("4")
+                .setOperatingSystem()
+                .setSeries()
+                .setMachineType()
+                .addGPUclick()
+                .setGpuType()
+                .setNumOfGPU()
+                .setLocalSSD()
+                .setDatacenterLocation()
+                .setCommitmentLocation()
                 .clickEstimateButton()
                 .switchToNewWindow(getTestData(YOPMAIL_URL));
 
@@ -51,8 +51,8 @@ public class Hardcore extends BrowserControl {
         calculatorPage()
                 .switchToFrame(calculatorPage().getFrame1())
                 .switchToFrame(calculatorPage().getFrame2())
-                .mailButtonClick(WAIT_TIME)
-                .setMailAddress(getTestData(mailText), WAIT_TIME);
+                .mailButtonClick()
+                .setMailAddress(getTestData(mailText));
 
         yopmailPage().switchToWindow(tabs.get(1));
         Thread.sleep(10000);
