@@ -234,7 +234,7 @@ public class CalculatorPage extends BasePage {
         return this;
     }
 
-    public CalculatorPage setMailAddress(String mail){
+    public CalculatorPage setMailAddress(String mail) throws InterruptedException {
 
 //        Actions actions = new Actions(getDriver());
 //        actions
@@ -242,7 +242,7 @@ public class CalculatorPage extends BasePage {
 //                .build()
 //                .perform();
 
-        waitForVisibilityOfElement(WAIT_TIME, mailAddress);
+        Thread.sleep(3000);
         mailAddress.click();
         mailAddress.sendKeys(mail + "@yopmail.com", Keys.ENTER);
         scrollToElement(mailAddress);
