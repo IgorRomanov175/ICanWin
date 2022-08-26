@@ -1,8 +1,6 @@
 package TestCase;
 
 import BrowserConfig.BrowserControl;
-import org.testng.annotations.Test;
-import utils.TestDataReader;
 
 
 public class ICanWin extends BrowserControl {

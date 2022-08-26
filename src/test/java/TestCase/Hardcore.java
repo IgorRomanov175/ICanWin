@@ -3,7 +3,6 @@ package TestCase;
 import BrowserConfig.BrowserControl;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import utils.TestDataReader;
 
 
 import java.util.ArrayList;
