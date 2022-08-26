@@ -1,7 +1,7 @@
 utils\TestListener.class
 TestCase\HurtMePlenty.class
 BrowserConfig\BrowserControl.class
-utils\TestDataReader.class
 TestCase\BringItOn.class
 TestCase\Hardcore.class
 TestCase\ICanWin.class
+TestCase\TestDataReader.class

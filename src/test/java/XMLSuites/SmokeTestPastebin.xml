@@ -2,10 +2,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 
-<suite name="Chrome Pastebin Smoke test">
+<suite name="Chrome Google Smoke test">
 
     <test name="iCanWin">
-        <parameter name="browser" value="chrome"/>
+        <parameter name="browser" value="${browser}"/>
         <classes>
             <class name="TestCase.ICanWin">
                 <methods>
@@ -16,7 +16,7 @@
     </test>
 
     <test name="bringItOn">
-        <parameter name="browser" value="chrome"/>
+        <parameter name="browser" value="${browser}"/>
         <classes>
             <class name="TestCase.BringItOn">
                 <methods>

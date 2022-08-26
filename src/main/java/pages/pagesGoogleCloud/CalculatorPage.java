@@ -236,6 +236,7 @@ public class CalculatorPage extends BasePage {
     public CalculatorPage setMailAddress(String mail, long time){
         mailAddress.click();
         mailAddress.sendKeys(mail + "@yopmail.com", Keys.ENTER);
+        scrollToElement(mailAddress);
         sendEmail.click();
         return this;
     }
