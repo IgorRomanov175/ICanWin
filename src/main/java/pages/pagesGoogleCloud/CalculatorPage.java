@@ -1,6 +1,7 @@
 package pages.pagesGoogleCloud;
 
 import org.openqa.selenium.WindowType;
+import org.openqa.selenium.interactions.Actions;
 import pages.basePage.BasePage;
 import lombok.Getter;
 import org.openqa.selenium.Keys;
@@ -234,10 +235,17 @@ public class CalculatorPage extends BasePage {
     }
 
     public CalculatorPage setMailAddress(String mail){
-        waitForVisibilityOfElement(WAIT_TIME, mailAddress);
-        mailAddress.click();
-        mailAddress.sendKeys(mail + "@yopmail.com", Keys.ENTER);
-        scrollToElement(mailAddress);
+
+        Actions actions = new Actions(getDriver());
+        actions
+                .sendKeys(Keys.TAB, Keys.TAB, mail + "@yopmail.com", Keys.ENTER)
+                .build()
+                .perform();
+
+//        waitForVisibilityOfElement(WAIT_TIME, mailAddress);
+//        mailAddress.click();
+//        mailAddress.sendKeys(mail + "@yopmail.com", Keys.ENTER);
+//        scrollToElement(mailAddress);
         sendEmail.click();
         return this;
     }
