@@ -236,16 +236,16 @@ public class CalculatorPage extends BasePage {
 
     public CalculatorPage setMailAddress(String mail){
 
-        Actions actions = new Actions(getDriver());
-        actions
-                .sendKeys(Keys.TAB, Keys.TAB, mail + "@yopmail.com", Keys.ENTER)
-                .build()
-                .perform();
+//        Actions actions = new Actions(getDriver());
+//        actions
+//                .sendKeys(Keys.TAB, Keys.TAB, mail + "@yopmail.com", Keys.ENTER)
+//                .build()
+//                .perform();
 
-//        waitForVisibilityOfElement(WAIT_TIME, mailAddress);
-//        mailAddress.click();
-//        mailAddress.sendKeys(mail + "@yopmail.com", Keys.ENTER);
-//        scrollToElement(mailAddress);
+        waitForVisibilityOfElement(WAIT_TIME, mailAddress);
+        mailAddress.click();
+        mailAddress.sendKeys(mail + "@yopmail.com", Keys.ENTER);
+        scrollToElement(mailAddress);
         sendEmail.click();
         return this;
     }
