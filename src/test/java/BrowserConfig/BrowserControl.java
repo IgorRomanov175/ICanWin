@@ -1,5 +1,6 @@
 package BrowserConfig;
 
+
 import org.testng.annotations.Listeners;
 import tools.driver.DriverSingleton;
 import org.openqa.selenium.WebDriver;

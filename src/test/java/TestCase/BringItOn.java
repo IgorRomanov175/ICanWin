@@ -11,7 +11,7 @@ public class BringItOn extends BrowserControl {
 
     private final static String TITLE = "BringItOn.test.data.title";
 
-    @Test
+//    @Test
     public void bringItOn() {
 
         homePage()

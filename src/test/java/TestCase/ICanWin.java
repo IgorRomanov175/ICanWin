@@ -10,7 +10,7 @@ public class ICanWin extends BrowserControl {
     String code = "ICanWin.test.data.code";
     String title = "ICanWin.test.data.title";
 
-    @Test
+//    @Test
     public void iCanWin(){
         homePage()
                 .openURL(PASTEBIN_URL)
