@@ -1,0 +1,7 @@
+pages\pagesGoogleCloud\GoogleCloudHomePage.class
+tools\driver\DriverSingleton.class
+pages\pagesGoogleCloud\SearchPage.class
+pages\yopmailPages\YopmailPage.class
+pages\pagesPastebin\HomePagePastebin.class
+pages\pagesGoogleCloud\CalculatorPage.class
+pages\basePage\BasePage.class

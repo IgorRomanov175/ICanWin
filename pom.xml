@@ -56,9 +56,9 @@
                             <suiteXmlFile>
                                 src\test\java\XMLSuites\chromeGoogleSmoke.xml
                             </suiteXmlFile>
-                            <suiteXmlFile>
-                                src\test\java\XMLSuites\edgeGoogleSmoke.xml
-                            </suiteXmlFile>
+<!--                            <suiteXmlFile>-->
+<!--                                src\test\java\XMLSuites\edgeGoogleSmoke.xml-->
+<!--                            </suiteXmlFile>-->
 <!--                            <suiteXmlFile>-->
 <!--                                src\test\java\XMLSuites\chromePastebinSmoke.xml-->
 <!--                            </suiteXmlFile>-->
