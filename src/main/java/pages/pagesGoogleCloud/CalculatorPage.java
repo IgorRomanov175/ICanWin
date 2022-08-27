@@ -136,8 +136,7 @@ public class CalculatorPage extends BasePage {
         super(driver);
     }
 
-    public CalculatorPage switchToFrame(WebElement frame) throws InterruptedException {
-        Thread.sleep(3000);
+    public CalculatorPage switchToFrame(WebElement frame){
         waitForPageLoadComplete(WAIT_TIME);
         getDriver().switchTo().frame(frame);
         return this;
