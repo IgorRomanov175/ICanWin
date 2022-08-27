@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-08-27T13:23:59 EEST" name="Surefire suite" finished-at="2022-08-27T13:24:51 EEST" duration-ms="51962">
+    <groups>
+    </groups>
+    <test started-at="2022-08-27T13:23:59 EEST" name="Surefire test" finished-at="2022-08-27T13:24:51 EEST" duration-ms="51962">
+      <class name="TestCase.Hardcore">
+        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:TestCase.Hardcore@37654521]" started-at="2022-08-27T13:23:59 EEST" name="setUp" finished-at="2022-08-27T13:24:03 EEST" duration-ms="3898" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="hardcore()[pri:0, instance:TestCase.Hardcore@37654521]" started-at="2022-08-27T13:24:03 EEST" name="hardcore" finished-at="2022-08-27T13:24:50 EEST" duration-ms="47302" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- hardcore -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:TestCase.Hardcore@37654521]" started-at="2022-08-27T13:24:50 EEST" name="tearDown" finished-at="2022-08-27T13:24:51 EEST" duration-ms="703" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- TestCase.Hardcore -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>

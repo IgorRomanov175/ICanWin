@@ -136,7 +136,8 @@ public class CalculatorPage extends BasePage {
         super(driver);
     }
 
-    public CalculatorPage switchToFrame(WebElement frame){
+    public CalculatorPage switchToFrame(WebElement frame) throws InterruptedException {
+        Thread.sleep(3000);
         waitForPageLoadComplete(WAIT_TIME);
         getDriver().switchTo().frame(frame);
         return this;
@@ -235,13 +236,6 @@ public class CalculatorPage extends BasePage {
     }
 
     public CalculatorPage setMailAddress(String mail) throws InterruptedException {
-
-//        Actions actions = new Actions(getDriver());
-//        actions
-//                .sendKeys(Keys.TAB, Keys.TAB, mail + "@yopmail.com", Keys.ENTER)
-//                .build()
-//                .perform();
-
         Thread.sleep(3000);
         mailAddress.click();
         mailAddress.sendKeys(mail + "@yopmail.com", Keys.ENTER);

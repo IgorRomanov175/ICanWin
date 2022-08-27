@@ -16,7 +16,7 @@ public class HurtMePlenty extends BrowserControl {
     String totalCost = "HurtMePlenty.test.data.totalCost";
 
     @Test
-    public void hurtMePlenty() {
+    public void hurtMePlenty() throws InterruptedException {
         googleCloudHomePage().getDriver().get(GOOGLE_CLOUD_URL);
         googleCloudHomePage().searchFieldInput(getTestData(SEARCH));
 
